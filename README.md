@@ -5,3 +5,5 @@
 - **scapy_flood_arp_reply.py**: flooding using arp reply.
 - **scapy_flood_arp_request.py**: flooding using arp request.
 - **scapy_arp_probe.py**: probing using arp.
+- **scapy_arp_sniff.py**: this is sniffing may be equals to tcpdump with filtered of arp.uses store=False ,so no saving in memory.print in terminal.
+- **scapy_arp_sniff_pcap_save.py**: this is sniffing as mentioned above but with saving as pcap file.uses sync=True which will not buffer ,direct write for each package to disk immediatly.
