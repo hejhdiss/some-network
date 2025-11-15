@@ -56061,6 +56061,21 @@ mac_prefixes = [
     "8C:1F:64:60:B",
 ]
 
+def fix_hex_byte(x):
+    """
+    Takes x (string or number) and returns a valid 2-digit uppercase hex byte.
+    """
+    try:
+        # Convert from hex string OR decimal number
+        val = int(str(x), 16) if isinstance(x, str) else int(x)
+    except:
+        raise ValueError(f"Invalid MAC byte: {x}")
+
+    # Enforce 0–255 limit
+    val = max(0, min(val, 255))
+
+    return f"{val:02X}"
+
 
 def random_mac():
     # Choose a random prefix
@@ -56075,10 +56090,12 @@ def random_mac():
 
     # Generate the rest of the bytes to make total 6
     remaining = 6 - existing_len
-    random_bytes = [f"{random.randint(0, 255):02X}" for _ in range(remaining)]
+    random_byte = [f"{random.randint(0, 255):02X}" for _ in range(remaining)]
+    random_bytes=[fix_hex_byte(x) for x in random_byte]
 
     # Combine prefix + random bytes
     full_mac = ":".join(parts + random_bytes)
 
     return full_mac
+    
 
