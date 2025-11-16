@@ -8,4 +8,4 @@
 - **scapy_arp_sniff.py**: this is sniffing may be equals to tcpdump with filtered of arp.uses store=False ,so no saving in memory(means after  performing function based prn keyword input on each packet ,it doesnt save in its internal python list (scapy's) -never stop nic,kernel,.. buffering .print in terminal.
 - **scapy_arp_sniff_pcap_save.py**: this is sniffing as mentioned above but with saving as pcap file.uses sync=True which will not buffer ,direct write for each package to disk immediatly.
 - **scapy_pcap_reader.py**: pcap reader.
-- **scapy_get_cidr.py**: getting cidr using scapy.
+- **scapy_get_cidr.py**: getting cidr using scapy of local network.
